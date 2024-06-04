@@ -1,6 +1,7 @@
 import 'package:cinemapedia/presentation/screens.dart';
 import 'package:cinemapedia/presentation/views/home_views/favorites_view.dart';
 import 'package:cinemapedia/presentation/views/home_views/home_view.dart';
+import 'package:cinemapedia/presentation/views/home_views/popular_view.dart';
 import 'package:go_router/go_router.dart';
 
 final appRouter = GoRouter(initialLocation: '/', routes: [
@@ -20,7 +21,7 @@ final appRouter = GoRouter(initialLocation: '/', routes: [
               path: 'movie/:id',
               name: NameRoutes.movieScreen,
               builder: (context, state) => MovieScreen( movieId: state.pathParameters['id'] ?? 'no-id'),
-            )
+            ),
           ]
         ),
       ]
@@ -32,6 +33,14 @@ final appRouter = GoRouter(initialLocation: '/', routes: [
             builder: (context, state) {
               return const FavoritesView();
             },
+          ),
+        ]
+      ),
+      StatefulShellBranch(
+        routes: [
+          GoRoute(
+              path: '/popular',
+              builder: (context, state) => const PopularView(),
           ),
         ]
       )
@@ -61,6 +70,7 @@ final appRouter = GoRouter(initialLocation: '/', routes: [
 class NameRoutes {
   static String homeScreen = 'homeScreen';
   static String movieScreen = 'movie-screen';
+  static String popularScreen = 'popular-screen';
 }
 
 //El paquete que utilizo para poder mostrar otras pantallas, es decir manejar diferentes rutas es:

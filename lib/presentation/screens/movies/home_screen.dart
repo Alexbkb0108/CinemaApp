@@ -10,7 +10,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       body: childView,
       bottomNavigationBar: const CustomBottomNavigation(),
-      drawer: const Text('Sidebar'),
+      // drawer: const Text('Sidebar'),
     );
   }
 }
